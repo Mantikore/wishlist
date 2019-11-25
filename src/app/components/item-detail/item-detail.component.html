@@ -1,6 +1,5 @@
-<div class="card mb-4 shadow-sm">
-  <div class="card-body">
-    <h2 *ngIf="product === undefined; else showData" >Choose the product</h2>
+
+    <h2 *ngIf="product == null; else showData" >Choose the product</h2>
     <ng-template #showData>
       <h2>
         {{product.name}} details
@@ -30,5 +29,3 @@
         </tbody>
       </table>
     </ng-template>
-  </div>
-</div>

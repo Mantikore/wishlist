@@ -13,7 +13,7 @@
     </div>
   </div>
   <div class="list-group">
-    <div href="#" class="list-group-item list-group-item-action"
+    <a routerLink="/{{product.name}}" class="list-group-item list-group-item-action"
        *ngFor="let product of products | async"
        (click)="onSelect(product)" [class.active]="clicked === product">
       <div class="row">
@@ -24,13 +24,13 @@
           {{product.location}}
         </div>
         <div class="col-md-3 text-right">
-          {{product.price}}
+          {{product.price}}$
         </div>
         <div class="col-md-3 text-right">
           <button type="button" class="btn btn-danger" (click)="removeProduct(product.name)">Remove</button>
         </div>
       </div>
 
-    </div>
+    </a>
   </div>
 </div>

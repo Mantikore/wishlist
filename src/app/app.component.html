@@ -24,7 +24,11 @@
             <app-wish-list (selected)="onSelected($event)"></app-wish-list>
         </div>
         <div class="col-md-6">
-          <app-item-detail [product]="product"></app-item-detail>
+          <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+              <router-outlet></router-outlet>
+            </div>
+          </div>
         </div>
       </div>
     </div>
