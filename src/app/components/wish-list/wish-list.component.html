@@ -1,0 +1,36 @@
+<div class="card mb-4 shadow-sm">
+  <div class="card-header">
+    My Wish List:
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-sm-6">
+        {{ 'Total price: ' | uppercase }} <strong>{{price | async }}</strong>
+      </div>
+      <div class="col-sm-6 text-right">
+        <button type="button" class="btn btn-danger" (click)="clearWishlist()">Clear WishList</button>
+      </div>
+    </div>
+  </div>
+  <div class="list-group">
+    <div href="#" class="list-group-item list-group-item-action"
+       *ngFor="let product of products | async"
+       (click)="onSelect(product)">
+      <div class="row">
+        <div class="col-md-3">
+          {{product.name}}
+        </div>
+        <div class="col-md-3">
+          {{product.location}}
+        </div>
+        <div class="col-md-3 text-right">
+          {{product.price}}
+        </div>
+        <div class="col-md-3 text-right">
+          <button type="button" class="btn btn-danger" (click)="removeProduct(product.name)">Remove</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

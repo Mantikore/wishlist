@@ -1,0 +1,46 @@
+{
+  "products": [
+    {
+      "name": "Product 1",
+      "location": "Berlin",
+      "price": 25,
+      "description": "This is a very nice product",
+      "rating": "4"
+    },
+    {
+      "name": "Product 2",
+      "location": "Amsterdam",
+      "price": 43,
+      "description": "This is a very nice product",
+      "rating": "5"
+    },
+    {
+      "name": "Product 3",
+      "location": "Dublin",
+      "price": 14,
+      "description": "This is a very nice product",
+      "rating": "3.8"
+    },
+    {
+      "name": "Product 4",
+      "location": "Helsinki",
+      "price": 52,
+      "description": "This is a very nice product",
+      "rating": "4.2"
+    },
+    {
+      "name": "Product 5",
+      "location": "Madrid",
+      "price": 65,
+      "description": "This is a very nice product",
+      "rating": "5"
+    },
+    {
+      "name": "Product 6",
+      "location": "Paris",
+      "price": 38,
+      "description": "This is a very nice product",
+      "rating": "4.7"
+    }
+  ]
+}

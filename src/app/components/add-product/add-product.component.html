@@ -1,0 +1,15 @@
+<h1 class="display-3">Add products to your wishlist:</h1>
+
+<div class="input-group mb-3">
+  <select class="form-control" id="exampleFormControlSelect1" #inputOrigin>
+    <option *ngFor="let product of products | async">
+      {{product.name}}
+    </option>
+  </select>
+  <div class="input-group-append">
+    <button class="btn  btn-primary" (click)="addProduct(inputOrigin.value);"  type="button">Add</button>
+  </div>
+</div>
+<div class="alert alert-danger" *ngIf="message | async" role="alert">
+  {{message | async}}
+</div>
