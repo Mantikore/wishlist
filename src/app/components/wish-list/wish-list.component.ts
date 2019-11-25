@@ -13,6 +13,7 @@ export class WishListComponent implements OnInit {
   products: Observable<Product[]>;
   price: Observable<number>;
   @Output() selected = new EventEmitter<Product>();
+  clicked;
 
   constructor(
     private productsService: ProductService
@@ -25,6 +26,7 @@ export class WishListComponent implements OnInit {
 
   onSelect(product: Product) {
     this.selected.emit(product);
+    this.clicked = product;
   }
 
   clearWishlist() {

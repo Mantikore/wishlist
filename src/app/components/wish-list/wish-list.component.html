@@ -15,7 +15,7 @@
   <div class="list-group">
     <div href="#" class="list-group-item list-group-item-action"
        *ngFor="let product of products | async"
-       (click)="onSelect(product)">
+       (click)="onSelect(product)" [class.active]="clicked === product">
       <div class="row">
         <div class="col-md-3">
           {{product.name}}
