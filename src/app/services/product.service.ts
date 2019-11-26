@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {BehaviorSubject, Observable, of, Subject} from 'rxjs';
 import {Product} from '../models/product';
 import {catchError, map, switchMap} from 'rxjs/operators';
+import {ActivatedRoute} from '@angular/router';
 
 
 @Injectable({
@@ -19,7 +20,9 @@ export class ProductService {
   message = new BehaviorSubject<string>('');
   message$ = this.message.asObservable();
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient
+  ) {}
 
   private calculatePrice() {
     return this.wishedProducts.reduce((acc, item) => acc + item.price, 0);

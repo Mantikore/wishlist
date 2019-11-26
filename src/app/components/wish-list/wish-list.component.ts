@@ -2,7 +2,8 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {Product} from '../../models/product';
 import {ProductService} from '../../services/product.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
+import {filter, map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-wish-list',
@@ -13,16 +14,25 @@ export class WishListComponent implements OnInit {
 
   products: Observable<Product[]>;
   price: Observable<number>;
-  clicked;
+  clicked: Product;
+  navigationEnd: Observable<NavigationEnd>;
 
   constructor(
     private productsService: ProductService,
-    private router: ActivatedRoute
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
     this.products = this.productsService.wishlistChanged$;
     this.price = this.productsService.totalPrice$;
+    this.router.events.pipe(
+      filter((e): e is NavigationEnd => e instanceof NavigationEnd)
+    ).subscribe(event => {
+      this.productsService.getProduct(decodeURI(event.url.slice(1))).subscribe(product => {
+          this.clicked = product;
+        });
+      });
   }
 
   onSelect(product: Product) {
